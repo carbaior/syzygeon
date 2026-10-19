@@ -1,0 +1,908 @@
+{
+ "format": 2,
+ "license": "CC-BY-4.0",
+ "generated": "2026-10-19T13:32:21+00:00",
+ "plane": "invariable",
+ "pluto": false,
+ "step_days": 1.0,
+ "body_names": [
+  "Sun",
+  "Mercury",
+  "Venus",
+  "Earth",
+  "Mars",
+  "Jupiter",
+  "Saturn",
+  "Uranus",
+  "Neptune",
+  "Pluto",
+  "Moon"
+ ],
+ "pos_bodies": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  10
+ ],
+ "r_max_au": 55.0,
+ "eclipse_window_days": 2.0,
+ "min_planets_in_group": 5,
+ "coverage": {
+  "first_jd": -3100000,
+  "last_jd": 8000000,
+  "blocks_done": 1110,
+  "blocks_total": 1110,
+  "computed_jd_ranges": [
+   [
+    -3100000,
+    8000000
+   ]
+  ]
+ },
+ "criteria": {
+  "helio_axis": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 3344,
+   "file": "helio_axis.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_axis_out1": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1467,
+   "file": "helio_axis_out1.bin",
+   "max_amplitude_deg": 30.0
+  },
+  "helio_axis_out2": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 4066,
+   "file": "helio_axis_out2.bin",
+   "max_amplitude_deg": 20.0
+  },
+  "helio_axis_classical": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "count": 18970,
+   "file": "helio_axis_classical.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_axis_classical_out1": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "count": 22662,
+   "file": "helio_axis_classical_out1.bin",
+   "max_amplitude_deg": 30.0
+  },
+  "helio_axis_moon": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3338,
+   "file": "helio_axis_moon.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_axis_moon_out1": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 1261,
+   "file": "helio_axis_moon_out1.bin",
+   "max_amplitude_deg": 30.0
+  },
+  "helio_axis_moon_out2": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3030,
+   "file": "helio_axis_moon_out2.bin",
+   "max_amplitude_deg": 20.0
+  },
+  "helio_axis_moon_classical": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 18948,
+   "file": "helio_axis_moon_classical.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_axis_moon_classical_out1": {
+   "kind": "helio_axis",
+   "frame": "helio",
+   "axis": true,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 18672,
+   "file": "helio_axis_moon_classical_out1.bin",
+   "max_amplitude_deg": 30.0
+  },
+  "helio_side": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1665,
+   "file": "helio_side.bin",
+   "max_amplitude_deg": 120.0
+  },
+  "helio_side_out1": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 740,
+   "file": "helio_side_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_side_out2": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 3281,
+   "file": "helio_side_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "helio_side_classical": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "count": 9619,
+   "file": "helio_side_classical.bin",
+   "max_amplitude_deg": 120.0
+  },
+  "helio_side_classical_out1": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "count": 11726,
+   "file": "helio_side_classical_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_side_moon": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 1661,
+   "file": "helio_side_moon.bin",
+   "max_amplitude_deg": 120.0
+  },
+  "helio_side_moon_out1": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 647,
+   "file": "helio_side_moon_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "helio_side_moon_out2": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 2460,
+   "file": "helio_side_moon_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "helio_side_moon_classical": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 9611,
+   "file": "helio_side_moon_classical.bin",
+   "max_amplitude_deg": 120.0
+  },
+  "helio_side_moon_classical_out1": {
+   "kind": "helio_side",
+   "frame": "helio",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 9675,
+   "file": "helio_side_moon_classical_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "geo": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1815,
+   "file": "geo.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_out1": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 5687,
+   "file": "geo_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "geo_out2": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 18497,
+   "file": "geo_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "geo_3d": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1815,
+   "file": "geo_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_classical": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6
+   ],
+   "count": 15967,
+   "file": "geo_classical.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_classical_3d": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6
+   ],
+   "count": 15979,
+   "file": "geo_classical_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_moon": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3566,
+   "file": "geo_moon.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_moon_out1": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 7013,
+   "file": "geo_moon_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "geo_moon_out2": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 18321,
+   "file": "geo_moon_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "geo_moon_3d": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3564,
+   "file": "geo_moon_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_moon_classical": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 35468,
+   "file": "geo_moon_classical.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "geo_moon_classical_3d": {
+   "kind": "geo",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 35470,
+   "file": "geo_moon_classical_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1873,
+   "file": "sky.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_out1": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 6116,
+   "file": "sky_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "sky_out2": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 21656,
+   "file": "sky_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "sky_3d": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "count": 1873,
+   "file": "sky_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_classical": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6
+   ],
+   "count": 16578,
+   "file": "sky_classical.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_classical_3d": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6
+   ],
+   "count": 16592,
+   "file": "sky_classical_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_moon": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3784,
+   "file": "sky_moon.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_moon_out1": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 1,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 8092,
+   "file": "sky_moon_out1.bin",
+   "max_amplitude_deg": 60.0
+  },
+  "sky_moon_out2": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 2,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 24441,
+   "file": "sky_moon_out2.bin",
+   "max_amplitude_deg": 45.0
+  },
+  "sky_moon_3d": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "count": 3780,
+   "file": "sky_moon_3d.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_moon_classical": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "lon",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 37368,
+   "file": "sky_moon_classical.bin",
+   "max_amplitude_deg": 90.0
+  },
+  "sky_moon_classical_3d": {
+   "kind": "sky",
+   "frame": "geo",
+   "axis": false,
+   "measure": "3d",
+   "outliers": 0,
+   "bodies": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    10
+   ],
+   "count": 37371,
+   "file": "sky_moon_classical_3d.bin",
+   "max_amplitude_deg": 90.0
+  }
+ }
+}

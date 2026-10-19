@@ -1,0 +1,175 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-or-later -->
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">Syzygeon – Planetary alignments</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="The tightest groupings of the planets between 13,200 BC and AD 17,191, computed with the JPL DE441 ephemeris.">
+<script>
+  // Apply the saved theme before the page paints (dark by default).
+  try { const t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div>
+    <h1 data-i18n="title">Syzygeon</h1>
+    <p class="lede" id="lede" data-i18n="lede.generic">The tightest groupings of the planets, computed with the JPL DE441 ephemeris.</p>
+  </div>
+  <div class="masthead-tools">
+    <div class="lang-picker" id="lang-picker">
+      <span class="visually-hidden" id="lang-label" data-i18n="language">Language</span>
+      <button type="button" id="lang-button" class="quiet-button lang-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="lang-label lang-name">
+        <img id="lang-flag" class="flag" src="flags/gb.svg" alt="" width="21" height="14">
+        <span id="lang-name">English</span>
+        <svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5l3.5 3.5 3.5-3.5"/></svg>
+      </button>
+      <ul id="lang-list" class="lang-list" role="listbox" tabindex="-1" aria-labelledby="lang-label" hidden></ul>
+    </div>
+    <a id="repo-link" class="quiet-button repo-link" href="#" target="_blank" rel="noopener" data-i18n-attr="title:repo.title;aria-label:repo.title" hidden>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span data-i18n="repo.link">Source on GitHub</span>
+    </a>
+    <button type="button" id="theme-toggle" class="quiet-button" aria-pressed="false">Light theme</button>
+  </div>
+</header>
+
+<main class="layout">
+  <form class="controls" id="controls" autocomplete="off">
+    <fieldset>
+      <legend data-i18n="pov.legend">Point of view</legend>
+      <label class="choice"><input type="radio" name="frame" value="helio" checked> <span data-i18n="pov.helio">Seen from the Sun</span></label>
+      <label class="choice"><input type="radio" name="frame" value="geo"> <span data-i18n="pov.geo">Seen from the Earth</span></label>
+    </fieldset>
+
+    <fieldset id="kind-set">
+      <legend data-i18n="kind.legend">Kind of alignment</legend>
+      <label class="choice"><input type="radio" name="kind" value="axis" checked> <span data-i18n="kind.axis">Along a line through the Sun</span></label>
+      <label class="choice"><input type="radio" name="kind" value="side"> <span data-i18n="kind.side">All on one side of the Sun</span></label>
+    </fieldset>
+
+    <fieldset id="measure-set">
+      <legend data-i18n="measure.legend">How closeness is measured</legend>
+      <label class="choice"><input type="radio" name="measure" value="longitude" checked> <span data-i18n="measure.longitude">Longitude only</span></label>
+      <label class="choice"><input type="radio" name="measure" value="3d"> <span data-i18n="measure.3d">True distance in the sky</span></label>
+      <p class="hint" id="measure-hint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-i18n="bodies.legend">Bodies</legend>
+      <label class="choice" id="sun-choice"><input type="checkbox" name="sun" checked> <span data-i18n="bodies.sun">Include the Sun</span></label>
+      <label class="choice"><input type="checkbox" name="moon"> <span data-i18n="bodies.moon">Include the Moon</span></label>
+      <label class="choice"><input type="checkbox" name="classical"> <span data-i18n="bodies.classical">Naked-eye planets only</span></label>
+      <label class="field"><span data-i18n="bodies.outliers">Bodies allowed outside the group</span>
+        <select name="outliers">
+          <option value="0" data-i18n="outliers.0">None</option>
+          <option value="1" data-i18n="outliers.1">Any one</option>
+          <option value="2" data-i18n="outliers.2">Any two</option>
+        </select>
+      </label>
+      <p class="hint" id="bodies-hint"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend data-i18n="results.legend">Which results</legend>
+      <label class="field"><span data-i18n="results.top">Show the best</span> <input type="number" name="top" min="1" step="1" value="30" inputmode="numeric"></label>
+      <label class="field"><span data-i18n="results.max">Widest amplitude, degrees</span> <input type="number" name="max" min="0" step="any" placeholder="any" data-i18n-attr="placeholder:placeholder.any" inputmode="decimal"></label>
+      <label class="field"><span data-i18n="results.window">Keep the best within ± days</span> <input type="number" name="window" min="0" step="any" value="3650" inputmode="decimal"></label>
+      <div class="field-pair">
+        <label class="field"><span data-i18n="results.from">From year</span> <input type="number" name="from" step="1" placeholder="start" data-i18n-attr="placeholder:placeholder.start" inputmode="numeric"></label>
+        <label class="field"><span data-i18n="results.to">To year</span> <input type="number" name="to" step="1" placeholder="end" data-i18n-attr="placeholder:placeholder.end" inputmode="numeric"></label>
+      </div>
+      <p class="hint" data-i18n="results.yearsHint">Years are astronomical: 0 is 1 BC, −3101 is 3102 BC.</p>
+      <label class="field" id="elong-field"><span data-i18n="results.elong">At least this far from the Sun, degrees</span> <input type="number" name="elong" min="0" max="180" step="any" placeholder="any" data-i18n-attr="placeholder:placeholder.any" inputmode="decimal"></label>
+      <label class="field"><span data-i18n="results.eclipses">Eclipses</span>
+        <select name="eclipse">
+          <option value="" data-i18n="eclipseFilter.all">Show every grouping</option>
+          <option value="any" data-i18n="eclipseFilter.any">Only with an eclipse within ±2 days</option>
+          <option value="solar" data-i18n="eclipseFilter.solar">Only with a solar eclipse</option>
+          <option value="lunar" data-i18n="eclipseFilter.lunar">Only with a lunar eclipse</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend data-i18n="dates.legend">Dates</legend>
+      <label class="field"><span data-i18n="dates.calendar">Calendar</span>
+        <select name="calendar">
+          <option value="auto" data-i18n="calendar.auto">Julian until 1582, then Gregorian</option>
+          <option value="julian" data-i18n="calendar.julian">Julian</option>
+          <option value="gregorian" data-i18n="calendar.gregorian">Gregorian</option>
+        </select>
+      </label>
+      <label class="field"><span data-i18n="dates.time">Time</span>
+        <select name="time">
+          <option value="tdb" data-i18n="time.tdb">TDB, the ephemeris time scale</option>
+          <option value="ut" data-i18n="time.ut">UT, civil time (via ΔT)</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <button type="button" id="export" class="primary-button" data-i18n="export">Export list as CSV</button>
+    <p class="hint" id="coverage"></p>
+  </form>
+
+  <section class="viewer" aria-label="Configuration of the selected date" data-i18n-attr="aria-label:viewer.label">
+    <figure class="dial-figure">
+      <div class="dial-tools" role="group" aria-label="Diagram options" data-i18n-attr="aria-label:dial.options">
+        <div class="segmented" role="radiogroup" aria-label="Centre of the diagram" data-i18n-attr="aria-label:dial.centreGroup">
+          <button type="button" data-view="helio" role="radio" data-i18n="dial.sunCentre">Sun at centre</button>
+          <button type="button" data-view="geo" role="radio" data-i18n="dial.earthCentre">Earth at centre</button>
+        </div>
+        <div class="segmented" role="radiogroup" aria-label="Distances" data-i18n-attr="aria-label:dial.distancesGroup">
+          <button type="button" data-scale="schematic" role="radio" data-i18n="dial.even">Evenly spaced</button>
+          <button type="button" data-scale="true" role="radio" data-i18n="dial.true">True distances</button>
+        </div>
+      </div>
+      <svg id="dial" viewBox="-40 -40 720 720" role="img" aria-labelledby="dial-title">
+        <title id="dial-title" data-i18n="dial.title">Diagram of the solar system on the selected date</title>
+      </svg>
+      <figcaption id="dial-caption"></figcaption>
+    </figure>
+    <div class="details" id="details" aria-live="polite"></div>
+  </section>
+
+  <section class="results" aria-label="Results" data-i18n-attr="aria-label:results.label">
+    <div class="timeline" id="timeline-box">
+      <div class="timeline-head">
+        <p class="timeline-title" id="timeline-title"></p>
+        <ul class="legend" aria-label="Legend" data-i18n-attr="aria-label:timeline.legend">
+          <li><span class="key key-listed"></span><span data-i18n="timeline.listed">Listed below</span></li>
+          <li><span class="key key-other"></span><span data-i18n="timeline.other">Other stored groupings</span></li>
+        </ul>
+      </div>
+      <div class="timeline-plot">
+        <canvas id="timeline" role="img" aria-label="Amplitude of every stored grouping over time; tighter groupings are higher" data-i18n-attr="aria-label:timeline.aria"></canvas>
+        <div class="tooltip" id="tooltip" role="status" hidden></div>
+      </div>
+      <p class="hint" data-i18n="timeline.hint">Higher means tighter. Click a dot to see that date; drag across the chart to zoom into those years, double-click to zoom back out.</p>
+    </div>
+
+    <p class="summary" id="summary" data-i18n="summary.loading">Loading the dataset…</p>
+    <div class="table-wrap">
+      <table id="table">
+        <thead><tr></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="colophon">
+  <p class="visits" id="visits" hidden></p>
+  <p id="footer-text">Positions from JPL DE441 (Park et al. 2021), projected onto the invariable plane of the solar system. Tropical longitudes use the long-term precession of Vondrák et al. (2011); sidereal ones the Lahiri ayanamsha. ΔT from Morrison &amp; Stephenson (2004) as given by Espenak &amp; Meeus, with uncertainties after Huber (2000). Computed with <code>alignments.py</code>.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "fallback": "en",
+  "languages": [
+    { "code": "en", "name": "English",   "flag": "gb", "locale": "en-GB", "dir": "ltr" },
+    { "code": "es", "name": "Español",   "flag": "es", "locale": "es-ES", "dir": "ltr" },
+    { "code": "ca", "name": "Català",    "flag": "ca", "locale": "ca-ES", "dir": "ltr" },
+    { "code": "fr", "name": "Français",  "flag": "fr", "locale": "fr-FR", "dir": "ltr" },
+    { "code": "it", "name": "Italiano",  "flag": "it", "locale": "it-IT", "dir": "ltr" },
+    { "code": "de", "name": "Deutsch",   "flag": "de", "locale": "de-DE", "dir": "ltr" },
+    { "code": "pt", "name": "Português", "flag": "pt", "locale": "pt-PT", "dir": "ltr" },
+    { "code": "lv", "name": "Latviešu",  "flag": "lv", "locale": "lv-LV", "dir": "ltr" },
+    { "code": "ru", "name": "Русский",   "flag": "ru", "locale": "ru-RU", "dir": "ltr" },
+    { "code": "ja", "name": "日本語",     "flag": "jp", "locale": "ja-JP", "dir": "ltr" },
+    { "code": "zh", "name": "中文",       "flag": "cn", "locale": "zh-CN", "dir": "ltr" },
+    { "code": "hi", "name": "हिन्दी",      "flag": "in", "locale": "hi-IN", "dir": "ltr" }
+  ]
+}

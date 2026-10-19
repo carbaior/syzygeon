@@ -1,0 +1,6 @@
+# Ephemeris files (3 GB) and the raw cache are not needed by the web page
+*.bsp
+alignments_cache_*.npz
+alignments_cache_*.npz.tmp
+__pycache__/
+*.csv
