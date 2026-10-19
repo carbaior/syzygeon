@@ -6,6 +6,7 @@
 
 **Try it in your browser, nothing to install: <https://carbaior.github.io/syzygeon/>**
 
+[![Syzygeon showing the alignment of 27 February 1953 BC: five planets within 4.3° of sky, seen from the Earth](docs/img/screenshot.png)](https://carbaior.github.io/syzygeon/)
 
 Finds the dates of tightest grouping of the planets over the whole span of the
 JPL DE441 ephemeris (13,200 BC to AD 17,191), and lets you browse them in a web
