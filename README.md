@@ -84,47 +84,6 @@ about 70 MB in all and up to ~5 MB per criterion. The page only downloads the
 criterion being viewed. ERFA provides the long-term precession of Vondrák et
 al. (2011), used for tropical and sidereal longitudes.
 
-## 3. Publish on GitHub Pages
-
-```
-git add alignments.py export_web.py README.md .gitignore docs
-git commit -m "Syzygeon"
-git push
-```
-
-Then in the repository: **Settings → Pages → Build and deployment → Deploy
-from a branch → `main`, folder `/docs`**. The page appears at
-<https://carbaior.github.io/syzygeon/>.
-
-The page links to its repository, <https://github.com/carbaior/syzygeon>, set
-in `REPO_URL` at the top of `docs/app.js`. If you fork the project, change it,
-or leave it empty: on GitHub Pages the link is then worked out from the address
-(`https://<user>.github.io/<repo>/`), and elsewhere it is hidden.
-
-The `.bsp` ephemeris files (3 GB) and the raw cache are not needed by the page
-and are excluded by `.gitignore`.
-
-To try the page before publishing it, see the next section.
-
-## Visitor counter (optional)
-
-The page can count visits and show the total in its footer with
-[GoatCounter](https://www.goatcounter.com/), which is free for open projects,
-uses no cookies and does not store IP addresses, so no cookie banner is
-normally needed. It is set up for <https://cjbo.goatcounter.com> (`GOATCOUNTER = "cjbo"` in
-`docs/app.js`); if you fork the project, empty that line or use your own code:
-
-1. Create a free account at <https://www.goatcounter.com/signup> and choose a
-   site code, for example `syzygeon` (the dashboard will then live at
-   `https://syzygeon.goatcounter.com`).
-2. In its *Settings*, enable **Allow adding visitor counts on your website**.
-3. Put the code in `GOATCOUNTER` at the top of `docs/app.js`:
-   `const GOATCOUNTER = "syzygeon";`
-
-Visits from `localhost` are not counted, so testing offline does not inflate
-the figure. The dashboard also shows which pages, countries and languages the
-visitors come from.
-
 ## Run it offline
 
 The page needs no server software beyond the one that comes with Python, so
