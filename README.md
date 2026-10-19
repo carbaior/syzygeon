@@ -2,6 +2,10 @@
 
 *Syzygy + aeon: planetary alignments across 30,000 years.*
 
+[![Open the web app](https://img.shields.io/badge/Open_the_web_app-carbaior.github.io%2Fsyzygeon-d2ab62?style=for-the-badge)](https://carbaior.github.io/syzygeon/)
+
+**Try it in your browser, nothing to install: <https://carbaior.github.io/syzygeon/>**
+
 
 Finds the dates of tightest grouping of the planets over the whole span of the
 JPL DE441 ephemeris (13,200 BC to AD 17,191), and lets you browse them in a web
